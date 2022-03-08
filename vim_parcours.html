@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>Vim-Parcours</title>
+</head>
+<body>
+<br /> <br /> <br />
+<br />
+<br />
+<h1 align="center">Vim-Parcours<br />Angst vor Vi spielerisch verlieren</h1>
+<br />
+<p align="center"><font size="+3">LUG-Camp 2011 Tschierv</font></p>
+<p align="center"><font size="+2">&Uuml;berarbeitet Feb 2022</font></p>
+<br />
+<p align="center"><font size="+2">Visvanath "Viz" Ratnaweera </font></p>
+
+<br /><br />
+<h2>&Uuml;1. Eine Datei schreiben</h2>
+<pre>
+$ vi
+
+i (insert)
+
+Hello
+
+&lt;Esc&gt;
+
+:w hello.txt (write)
+
+:q (quit)
+</pre>
+
+<br /><br />
+<h2>&Uuml;2. Verschiedene Versionen von "insert"</h2>
+<pre>
+vi hello.txt
+
+I My&#128507;&lt;Esc&gt;
+
+a dear&#128507;&lt;Esc&gt;
+
+Hinweis: u (undo) [C-r (redo) sp&auml;ter]
+
+A &#128507;world&lt;Esc&gt;
+
+("My dear Hello world" speichern)
+</pre>
+
+<br /><br />
+<h2>&Uuml;3. Neue Zeile</h2>
+<pre>
+$ vi hello.txt
+
+O Tschierv 4. Juni 2011&lt;Esc&gt;
+
+o Liebe Geeks,&lt;Esc&gt;
+</pre>
+
+<br /><br />
+<h2>&Uuml;4. Langsame Bewegungen</h2>
+<pre>
+Inhalt hello.txt
+--8>--8>--8><<<--8><--
+Tschierv 4. Juni 2011
+
+Liebe Geeks,
+
+   Dear Hello World!
+--8>--8>--8><<<--8><--
+
+h j k l (Pfeile!)
+</pre>
+
+
+<br /><br />
+<h2>&Uuml;5. Schnelle Bewegungen: Homeline </h2>
+<pre>
+fx (forward to x)
+
+tx (to x)
+
+w (word - nicht alphanumerisch)
+
+W (word - Leerschlag getrennt)
+
+b (word back - nicht alphanumerisch)
+
+B (word back - Leerschlag getrennt)
+
+e (end of word - nitht alphanumerisch)
+
+E (end of word - Leerschlag getrennt)
+
+nw, nW
+
+0 (Zeilenanfang)
+
+$ (Zeilenende)
+</pre>
+
+
+<br /><br />
+<h2>&Uuml;6. Schnelle Bewegungen, &uuml;ber Zeilen hinaus</h2>
+<pre>
+C-F (page forward)
+
+C-B (page backward)
+
+nG (jump to line n)
+
+G (letzte Zeile)
+
+gg od 1G (erste Zeile)
+
+/ (forward search)
+
+? (backward search)
+
+n (repeat previous search)
+
+N (repeat previous search backwards)
+</pre>
+
+
+<br /><br />
+<h2>&Uuml;7. Cut-and-Paste</h2>
+<pre>
+&lt;BS&gt; nur im Insertmodus!
+
+x (del under cursor)
+
+X (del left of cursor)
+
+dw, dW, db, dB, etc (delete movement)
+
+ndw, ndW, etc. (n times delte movement)
+
+dd (delete line)
+
+ndd (delete n lines)
+
+p (after cursor)
+
+P (paste before cursor)
+
+Hinweis: . (repeat last!)
+</pre>
+
+<h3>Tests</h3>
+<ol><li>Zwei Zeichen tauschen.</li>
+
+<li>Zwei W&ouml;rter tauschen.</li>
+
+<li>Zwei Zeilen tauschen.</li>
+</ol>
+
+<br /><br />
+<h2>&Uuml;8. Suchen, Ersetzen</h2>
+<pre>
+:s/foo/bar/
+
+:s (repeat last s)
+
+r x (replace char with x)
+
+nr x (replace next n char with x)
+
+R text&lt;Esc&gt; (replace until Esc)
+</pre>
+
+<br /><br />
+<h2>&Uuml;9. Zur Motivation</h2>
+<pre>
+:r file
+
+:! shell command
+
+:r ! shell command
+</pre>
+
+
+<br /><br />
+<h2>10. Lebenswichtig</h2>
+<pre>
+- individuelle .vimrc, von Null auf
+</pre>
+
+<br /><br />
+Quellen:
+<ol>
+<li><a href="https://jmcphers.github.io/articles/efficient-editing.html">Efficient Editing With vim</a></li>
+<li><a href="https://vim.swaroopch.com/byte-of-vim.pdf">A Byte of Vim</a> [PDF]</li>
+</ol>
+<hr>
+<addrss>Version 2022-02-25 22:05 visvanath@ratnaweera.net<br />
+Released under <a href="http://www.gnu.org/licenses/fdl.txt">GNU Free Documentation Licence</address>
+</body>
+</html>
