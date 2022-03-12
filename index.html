@@ -9,97 +9,111 @@
 <h1 align="center">Vim-Parcours<br />Angst vor Vi spielerisch verlieren</h1>
 <br />
 <p align="center"><font size="+3">LUG-Camp 2011 Tschierv</font></p>
-<p align="center"><font size="+2">&Uuml;berarbeitet Feb 2022</font></p>
 <br />
 <p align="center"><font size="+2">Visvanath "Viz" Ratnaweera </font></p>
 
+<p align="center"><font size="+2">(&uuml;berarbeitete Version, M&auml;rz 2022)</font></p>
 <br /><br />
-<h2>&Uuml;1. Eine Datei schreiben</h2>
+
+<h2>Overview: Vi modes</h2>
+
+<img src="vimmodes_scaled.jpg" />
+
+<h2>&Uuml;1. Eine Datei erstellen und gleich schreiben</h2>
 <pre>
-$ vi
+$ <b>vi</b>
+                       VIM - Vi IMproved
 
-i (insert)
+                          version 8.2.2434
+                      by Bram Moolenaar et al.
+               Modified by team+vim@tracker.debian.org
+             Vim is open source and freely distributable
 
-Hello
 
-&lt;Esc&gt;
+<b>i <em>Hello</em>&lt;Esc&gt;</b>           i = to insert mode, Esc back to vi mode
 
-:w hello.txt (write)
+<b>:w <em>hello.txt</em></b>           : = to ex mode, w write (and back to vi mode)
 
-:q (quit)
+<b>:q</b>                     : = to ex mode, q quit
 </pre>
 
 <br /><br />
 <h2>&Uuml;2. Verschiedene Versionen von "insert"</h2>
 <pre>
-vi hello.txt
+$ <b>vi hello.txt</b>
 
-I My&#128507;&lt;Esc&gt;
+<b>I <em>My</em>&lt;Esc</b>&gt;</b>              &iquest;........................
 
-a dear&#128507;&lt;Esc&gt;
+<b>a &#128507;<em>dear</em></b>&lt;<b>Esc</b>&gt;           &iquest;........................
 
-Hinweis: u (undo) [C-r (redo) sp&auml;ter]
+<b>A &#128507;<em>world</em>&lt;Esc&gt;</b>          &iquest;........................
 
-A &#128507;world&lt;Esc&gt;
-
-("My dear Hello world" speichern)
 </pre>
 
 <br /><br />
-<h2>&Uuml;3. Neue Zeile</h2>
+<h2>&Uuml;3. Special insert commands</h2>
 <pre>
-$ vi hello.txt
+<b>O <em>Tschierv 4. Juni 2011</em>&lt;Esc&gt;</b>      &iquest;........................
 
-O Tschierv 4. Juni 2011&lt;Esc&gt;
+<b>o <em>Liebe Geeks,</em>&lt;Esc&gt;</b>               &iquest;........................
 
-o Liebe Geeks,&lt;Esc&gt;
+<b>c <em>Nerds,</em>&lt;Esc&gt;</b>                     &iquest;........................
+</pre>
+
+
+<br /><br />
+<h2>Side note: Life savers</h2>
+<pre>
+<b>u</b>               undo 
+
+<b>C-r</b>             redo 
 </pre>
 
 <br /><br />
 <h2>&Uuml;4. Langsame Bewegungen</h2>
 <pre>
-Inhalt hello.txt
---8>--8>--8><<<--8><--
+$ <b>cat hello.txt</b>
 Tschierv 4. Juni 2011
 
 Liebe Geeks,
 
    Dear Hello World!
---8>--8>--8><<<--8><--
 
-h j k l (Pfeile!)
+$ <b>vi hello.txt</b>
+<b>h j k l</b>            Pfeile! 
 </pre>
-
+<img src="Hands_on_keyboard.gif" />
 
 <br /><br />
-<h2>&Uuml;5. Schnelle Bewegungen: Homeline </h2>
+<h2>&Uuml;5. Schnelle Bewegungen I: Homeline </h2>
 <pre>
-fx (forward to x)
+<b>fx</b>               forward to x
 
-tx (to x)
+<b>tx</b>               to x)
 
-w (word - nicht alphanumerisch)
+<b>w</b>                word - nicht alphanumerisch
 
-W (word - Leerschlag getrennt)
+<b>W</b>                word - Leerschlag getrennt
 
-b (word back - nicht alphanumerisch)
+<b>b</b>                word back - nicht alphanumerisch
 
-B (word back - Leerschlag getrennt)
+<b>B</b>                word back - Leerschlag getrennt
 
-e (end of word - nitht alphanumerisch)
+<b>e</b>                end of word - nitht alphanumerisch
 
-E (end of word - Leerschlag getrennt)
+<b>E</b>                end of word - Leerschlag getrennt
 
-nw, nW
+<b>0</b>                Zeilenanfang
 
-0 (Zeilenanfang)
+<b>$</b>                Zeilenende
 
-$ (Zeilenende)
+<b>nw, nW</b>           Multiplicator
+
 </pre>
 
 
 <br /><br />
-<h2>&Uuml;6. Schnelle Bewegungen, &uuml;ber Zeilen hinaus</h2>
+<h2>&Uuml;6. Schnelle Bewegungen II: &Uuml;ber Zeilen hinaus</h2>
 <pre>
 C-F (page forward)
 
@@ -191,7 +205,7 @@ Quellen:
 <li><a href="https://vim.swaroopch.com/byte-of-vim.pdf">A Byte of Vim</a> [PDF]</li>
 </ol>
 <hr>
-<addrss>Version 2022-02-25 22:05 visvanath@ratnaweera.net<br />
+<addrss>Version 2022-03-12 10:30 visvanath@ratnaweera.net<br />
 Released under <a href="http://www.gnu.org/licenses/fdl.txt">GNU Free Documentation Licence</address>
 </body>
 </html>
