@@ -1,16 +1,22 @@
 <html>
 <head>
-<title>Vim-Parcours</title>
+  <title>Vim-Parcours</title>
+  <style type="text/css">
+  body {
+    font-family: courier;
+    color: #332211;
+    background-color: #d8d8dd }
+  </style>
 </head>
 <body>
 <br /> <br /> <br />
 <br />
 <br />
-<h1 align="center">Vim-Parcours<br />Angst vor Vi spielerisch verlieren</h1>
+<h1 align="center">Vim-Parcours<br /><br />Angst vor Vi spielerisch verlieren</h1>
 <br />
 <p align="center"><font size="+3">LUG-Camp 2011 Tschierv</font></p>
 <br />
-<p align="center"><font size="+2">Visvanath "Viz" Ratnaweera </font></p>
+<p align="center"><font size="+2">"Viz" Ratnaweera</font></p>
 
 <p align="center"><font size="+2">(&uuml;berarbeitete Version, M&auml;rz 2022)</font></p>
 <br /><br />
@@ -19,65 +25,61 @@
 
 <img src="vimmodes_scaled.jpg" />
 
-<h2>&Uuml;1. Eine Datei erstellen und gleich schreiben</h2>
+<h2>1. Die ersten Begriffe: Buffer, Vi-Mode und Insert-Mode</h2>
 <pre>
 $ <b>vi</b>
                        VIM - Vi IMproved
 
                           version 8.2.2434
                       by Bram Moolenaar et al.
-               Modified by team+vim@tracker.debian.org
-             Vim is open source and freely distributable
 
 
-<b>i <em>Hello</em>&lt;Esc&gt;</b>           i = to insert mode, Esc back to vi mode
+<b>i <em>Hello</em>&lt;Esc&gt;</b>           <b>i</b> = to insert mode, <b>&lt;Esc&gt;</b> = back to vi mode
 
-<b>:w <em>hello.txt</em></b>           : = to ex mode, w write (and back to vi mode)
+<b>:w <em>hello.txt</em></b>           <b>:</b> = to Ex-mode, <b>w</b> write the buffer to ..
 
-<b>:q</b>                     : = to ex mode, q quit
+<b>:q</b>                     <b>:</b> = to Ex-mode, <b>q</b> quit
 </pre>
 
 <br /><br />
-<h2>&Uuml;2. Verschiedene Versionen von "insert"</h2>
+<h2>2. Die Insert-Befehle</h2>
 <pre>
 $ <b>vi hello.txt</b>
 
-<b>I <em>My</em>&lt;Esc</b>&gt;</b>              &iquest;........................
+<b>i <em>My</em>&lt;Esc</b>&gt;</b>              <b>i</b> = ........................
 
-<b>a &#128507;<em>dear</em></b>&lt;<b>Esc</b>&gt;           &iquest;........................
+<b>I <em>My</em>&lt;Esc</b>&gt;</b>              <b>I</b> = ........................
 
-<b>A &#128507;<em>world</em>&lt;Esc&gt;</b>          &iquest;........................
+<b>a &#128507;<em>dear</em></b>&lt;<b>Esc</b>&gt;          <b>a</b> = ........................
+
+<b>A &#128507;<em>world</em>&lt;Esc&gt;</b>         <b>A</b> = ........................
 
 </pre>
 
 <br /><br />
-<h2>&Uuml;3. Special insert commands</h2>
+<h2>3. Besondere Insert-Befehle</h2>
 <pre>
-<b>O <em>Tschierv 4. Juni 2011</em>&lt;Esc&gt;</b>      &iquest;........................
+<b>o <em>Gruss</em>&lt;Esc&gt;</b>           <b>o</b> = ........................
 
-<b>o <em>Liebe Geeks,</em>&lt;Esc&gt;</b>               &iquest;........................
+<b>O <em>Liebe Geeks,</em>&lt;Esc&gt;</b>    <b>O</b> = ........................
 
-<b>c <em>Nerds,</em>&lt;Esc&gt;</b>                     &iquest;........................
+<b>c <em>Viz</em>&lt;Esc&gt;</b>             <b>c</b> = ........................
 </pre>
 
 
 <br /><br />
-<h2>Side note: Life savers</h2>
+<h2>4. Lebensretter</h2>
 <pre>
 <b>u</b>               undo 
 
 <b>C-r</b>             redo 
+
+<b>.</b>               repeat last 
 </pre>
 
 <br /><br />
-<h2>&Uuml;4. Langsame Bewegungen</h2>
+<h2>5. Bewegungen I: Pfeile</h2>
 <pre>
-$ <b>cat hello.txt</b>
-Tschierv 4. Juni 2011
-
-Liebe Geeks,
-
-   Dear Hello World!
 
 $ <b>vi hello.txt</b>
 <b>h j k l</b>            Pfeile! 
@@ -85,7 +87,7 @@ $ <b>vi hello.txt</b>
 <img src="Hands_on_keyboard.gif" />
 
 <br /><br />
-<h2>&Uuml;5. Schnelle Bewegungen I: Homeline </h2>
+<h2>6. Bewegungen II: Homeline </h2>
 <pre>
 <b>fx</b>               forward to x
 
@@ -107,13 +109,13 @@ $ <b>vi hello.txt</b>
 
 <b>$</b>                Zeilenende
 
-<b>nw, nW</b>           Multiplicator
+<b>nw, nW</b>           Multiplikator
 
 </pre>
 
 
 <br /><br />
-<h2>&Uuml;6. Schnelle Bewegungen II: &Uuml;ber Zeilen hinaus</h2>
+<h2>7. Bewegungen III: &Uuml;ber Zeilen hinaus</h2>
 <pre>
 C-F (page forward)
 
@@ -125,6 +127,12 @@ G (letzte Zeile)
 
 gg od 1G (erste Zeile)
 
+</pre>
+
+<br /><br />
+<h2>8. Bewegungen IV: Suche nach Text</h2>
+
+<pre>
 / (forward search)
 
 ? (backward search)
@@ -136,27 +144,24 @@ N (repeat previous search backwards)
 
 
 <br /><br />
-<h2>&Uuml;7. Cut-and-Paste</h2>
+<h2>9. Cut-and-Paste</h2>
 <pre>
-&lt;BS&gt; nur im Insertmodus!
+<b>&lt;BS&gt;</b>       Geht nur im Insertmodus!
 
-x (del under cursor)
+<b>x</b>          del under cursor
 
-X (del left of cursor)
+<b>X</b>          del left of cursor
 
-dw, dW, db, dB, etc (delete movement)
+dw, dW, db, dB    analog zur Bewegung
 
-ndw, ndW, etc. (n times delte movement)
+dd                delete line
 
-dd (delete line)
+ndw, ndW, etc.    Multiplikator
 
-ndd (delete n lines)
+p                 paster after cursor
 
-p (after cursor)
+P                 paste before cursor
 
-P (paste before cursor)
-
-Hinweis: . (repeat last!)
 </pre>
 
 <h3>Tests</h3>
@@ -168,7 +173,7 @@ Hinweis: . (repeat last!)
 </ol>
 
 <br /><br />
-<h2>&Uuml;8. Suchen, Ersetzen</h2>
+<h2>10. Suchen, Ersetzen</h2>
 <pre>
 :s/foo/bar/
 
@@ -181,8 +186,16 @@ nr x (replace next n char with x)
 R text&lt;Esc&gt; (replace until Esc)
 </pre>
 
+
 <br /><br />
-<h2>&Uuml;9. Zur Motivation</h2>
+<h2>11. Tipps</h2>
+<pre>
+- individuelle .vimrc, von Null auf
+</pre>
+
+
+<br /><br />
+<h2>12. Bonus</h2>
 <pre>
 :r file
 
@@ -190,14 +203,6 @@ R text&lt;Esc&gt; (replace until Esc)
 
 :r ! shell command
 </pre>
-
-
-<br /><br />
-<h2>10. Lebenswichtig</h2>
-<pre>
-- individuelle .vimrc, von Null auf
-</pre>
-
 <br /><br />
 Quellen:
 <ol>
@@ -205,7 +210,7 @@ Quellen:
 <li><a href="https://vim.swaroopch.com/byte-of-vim.pdf">A Byte of Vim</a> [PDF]</li>
 </ol>
 <hr>
-<addrss>Version 2022-03-12 10:30 visvanath@ratnaweera.net<br />
+<addrss>Version 2022-03-16 22:27 visvanath@ratnaweera.net<br />
 Released under <a href="http://www.gnu.org/licenses/fdl.txt">GNU Free Documentation Licence</address>
 </body>
 </html>
